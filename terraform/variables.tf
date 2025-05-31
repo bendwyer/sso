@@ -101,12 +101,15 @@ variable "hcp_terraform_entity_id" {
 
 variable "onepassword_vault_uuid" {
   description = "1Password vault uuid."
+  type        = string
 }
 
 variable "onepassword_item_uuid_auth0" {
   description = "1Password item uuid for Auth0 credential."
+  type        = string
 }
 
 variable "onepassword_item_uuid_cloudflare" {
   description = "1Password item uuid for Cloudflare credential."
+  type        = string
 }
