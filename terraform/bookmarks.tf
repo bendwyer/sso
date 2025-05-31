@@ -1,3 +1,12 @@
+module "onepassword" {
+  source = "./modules/cloudflare-access-bookmark"
+
+  bookmark_name         = "1Password"
+  bookmark_logo_url     = "https://1password.com/favicon/icon-v2.svg"
+  bookmark_url          = "https://my.1password.eu/signin"
+  cloudflare_account_id = var.cloudflare_account_id
+}
+
 module "auth0_dashboard" {
   source = "./modules/cloudflare-access-bookmark"
 
