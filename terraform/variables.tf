@@ -1,13 +1,3 @@
-variable "auth0_client_id" {
-  description = "Auth0 client id."
-  type        = string
-}
-
-variable "auth0_client_secret" {
-  description = "Auth0 client secret."
-  type        = string
-}
-
 variable "auth0_connection_default_database_id" {
   description = "Auth0 id for default database connection."
   type        = string
@@ -18,30 +8,39 @@ variable "auth0_domain" {
   type        = string
 }
 
-variable "aws_access_key" {
-  description = "AWS access key."
+variable "aws_iam_identity_center_acs_url" {
+  description = "SAML Assertion Consumer Service (ACS) url."
   type        = string
 }
 
-variable "aws_secret_key" {
-  description = "AWS secret key."
+variable "aws_iam_identity_center_entity_id" {
+  description = "SAML Entity ID. Can also be called Issuer URL or Audience."
+  type        = string
+}
+
+variable "aws_iam_identity_center_family_name" {
+  description = "Family (last) name for IAM Identity Center."
+  type        = string
+}
+
+variable "aws_iam_identity_center_given_name" {
+  description = "Given (first) name for IAM Identity Center."
+  type        = string
+}
+
+variable "aws_iam_identity_center_permission_set" {
+  description = "Permission set to assign the created AWS Identity Center group."
+  type        = string
+}
+
+variable "aws_iam_identity_center_username" {
+  description = "Username for IAM Identity Center. Must be email for SSO from Auth0/Cloudflare to work correctly."
   type        = string
 }
 
 variable "aws_region" {
   default     = "eu-central-1"
   description = "AWS region."
-  type        = string
-}
-
-variable "aws_assume_role_arn" {
-  description = "ARN of AWS IAM role to assume."
-  type        = string
-}
-
-variable "aws_assume_role_session_name" {
-  default     = "terraform-cli"
-  description = "Session name for easier tracking in logs."
   type        = string
 }
 
@@ -62,11 +61,6 @@ variable "cloudflare_access_team_domain" {
 
 variable "cloudflare_account_id" {
   description = "Cloudflare account id."
-  type        = string
-}
-
-variable "cloudflare_api_token" {
-  description = "Cloudflare API token."
   type        = string
 }
 
@@ -105,32 +99,14 @@ variable "hcp_terraform_entity_id" {
   type        = string
 }
 
-variable "aws_iam_identity_center_acs_url" {
-  description = "SAML Assertion Consumer Service (ACS) url."
-  type        = string
+variable "onepassword_vault_uuid" {
+  description = "1Password vault uuid."
 }
 
-variable "aws_iam_identity_center_entity_id" {
-  description = "SAML Entity ID. Can also be called Issuer URL or Audience."
-  type        = string
+variable "onepassword_item_uuid_auth0" {
+  description = "1Password item uuid for Auth0 credential."
 }
 
-variable "aws_iam_identity_center_family_name" {
-  description = "Family (last) name for IAM Identity Center."
-  type        = string
-}
-
-variable "aws_iam_identity_center_given_name" {
-  description = "Given (first) name for IAM Identity Center."
-  type        = string
-}
-
-variable "aws_iam_identity_center_permission_set" {
-  description = "Permission set to assign the created AWS Identity Center group."
-  type        = string
-}
-
-variable "aws_iam_identity_center_username" {
-  description = "Username for IAM Identity Center. Must be email for SSO from Auth0/Cloudflare to work correctly."
-  type        = string
+variable "onepassword_item_uuid_cloudflare" {
+  description = "1Password item uuid for Cloudflare credential."
 }
