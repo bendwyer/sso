@@ -1,0 +1,15 @@
+---
+name: update-op
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+jobs:
+  update:
+    uses: bendwyer/github-workflows/.github/workflows/op-update.yml@main
+    with:
+      gh_app_id: ${{ vars.GH_APP_ID }}
+    secrets:
+      gh_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
