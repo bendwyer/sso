@@ -15,7 +15,7 @@ terraform {
       # version = "5.5.0"
     }
     onepassword = {
-      source = "1Password/onepassword"
+      source  = "1Password/onepassword"
       version = "2.1.2"
     }
   }
