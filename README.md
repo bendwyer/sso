@@ -1,4 +1,4 @@
-SSO
+sso
 ===
 
 [Auth0](https://auth0.com) is the **Identity Provider (IdP)** and [Cloudflare Access](https://www.cloudflare.com/zero-trust/products/access/) is the primary **Service Provider (SP)**. If possible, SSO applications should be added to the [App Launcher](https://developers.cloudflare.com/cloudflare-one/applications/app-launcher/) in Cloudflare Access.
