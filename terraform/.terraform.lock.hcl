@@ -3,7 +3,7 @@
 
 provider "registry.terraform.io/1password/onepassword" {
   version     = "2.1.2"
-  constraints = "2.1.2"
+  constraints = "~> 2.0, >= 2.1.2"
   hashes = [
     "h1:GodYqoGG/PLyQr/Zm3EAw/lU4ixmDkWGPSJnAGT95nA=",
     "zh:03d20138bf7bc645707b2c0c00203f66c07902d03c72be3f5f7bc365155bdc35",
@@ -48,7 +48,7 @@ provider "registry.terraform.io/auth0/auth0" {
 
 provider "registry.terraform.io/cloudflare/cloudflare" {
   version     = "4.52.1"
-  constraints = "~> 4.0, >= 4.52.0"
+  constraints = "~> 4.0, >= 4.52.0, < 5.0.0"
   hashes = [
     "h1:NHZ5RJIzQDLhie/ykl3uI6UPfNQR9Lu5Ti7JPR6X904=",
     "zh:2fb95e1d3229b9b6c704e1a413c7481c60f139780d9641f657b6eb9b633b90f2",
