@@ -3,21 +3,25 @@ terraform {
 
   required_providers {
     auth0 = {
-      source = "auth0/auth0"
+      source  = "auth0/auth0"
       version = "~> 1.0"
     }
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "~> 6.0"
     }
     cloudflare = {
-      source = "cloudflare/cloudflare"
+      source  = "cloudflare/cloudflare"
       version = "~> 4.0"
       # lots of bugs, downgrading for now
       # version = "~>5.0"
     }
+    grafana = {
+      source  = "grafana/grafana"
+      version = "~> 4.0"
+    }
     onepassword = {
-      source = "1Password/onepassword"
+      source  = "1Password/onepassword"
       version = "~> 2.0"
     }
   }

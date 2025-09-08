@@ -69,6 +69,11 @@ variable "cloudflare_zone_name" {
   type        = string
 }
 
+variable "grafana_stack_url" {
+  description = "URL of Grafana Stack."
+  type        = string
+}
+
 variable "hcp_acs_url" {
   description = "SAML Assertion Consumer Service (ACS) url."
   type        = string
