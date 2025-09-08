@@ -118,3 +118,8 @@ variable "onepassword_item_uuid_cloudflare" {
   description = "1Password item uuid for Cloudflare credential."
   type        = string
 }
+
+variable "onepassword_item_uuid_grafana_cloud" {
+  description = "1Password item uuid for Cloudflare credential."
+  type        = string
+}

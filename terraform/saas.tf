@@ -20,7 +20,6 @@ module "grafana_cloud" {
   cloudflare_zero_trust_access_identity_provider = module.cloudflare_access.auth0_idp_oidc
   cloudflare_zero_trust_access_policy            = module.cloudflare_access.private_applications_policy
   grafana_stack_url                              = var.grafana_stack_url
-
 }
 
 module "hcp" {
