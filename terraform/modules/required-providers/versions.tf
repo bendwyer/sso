@@ -16,6 +16,10 @@ terraform {
       # lots of bugs, downgrading for now
       # version = ">= 5.5.0"
     }
+    grafana = {
+      source  = "grafana/grafana"
+      version = ">= 4.5.3"
+    }
     onepassword = {
       source  = "1Password/onepassword"
       version = ">= 2.1.2"
