@@ -39,6 +39,6 @@ resource "grafana_sso_settings" "this" {
     auth_url      = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/authorization"
     token_url     = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/token"
     api_url       = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/userinfo"
-    use_pkce      = true
+    allow_sign_up = true
   }
 }
