@@ -32,13 +32,14 @@ resource "cloudflare_zero_trust_access_application" "this" {
 resource "grafana_sso_settings" "this" {
   provider_name = "generic_oauth"
   oauth2_settings {
-    name          = "Cloudflare Access"
-    client_id     = cloudflare_zero_trust_access_application.this.saas_app[0].client_id
-    client_secret = cloudflare_zero_trust_access_application.this.saas_app[0].client_secret
-    scopes        = "openid profile email"
-    auth_url      = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/authorization"
-    token_url     = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/token"
-    api_url       = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/userinfo"
-    allow_sign_up = true
+    name               = "Cloudflare Access"
+    client_id          = cloudflare_zero_trust_access_application.this.saas_app[0].client_id
+    client_secret      = cloudflare_zero_trust_access_application.this.saas_app[0].client_secret
+    scopes             = "openid profile email"
+    auth_url           = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/authorization"
+    token_url          = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/token"
+    api_url            = "https://${var.cloudflare_access_team_domain}.cloudflareaccess.com/cdn-cgi/access/sso/oidc/${cloudflare_zero_trust_access_application.this.saas_app[0].client_id}/userinfo"
+    allow_sign_up      = true
+    skip_org_role_sync = true
   }
 }
