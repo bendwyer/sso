@@ -83,6 +83,7 @@ The token generated for the service account should be used with Terraform to man
 
 - [Grafana Cloud OIDC application on Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/saas-apps/grafana-cloud-saas-oidc/)
 - [Cloudflare Zero Trust application URL patterns](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/saas-apps/generic-oidc-saas/#2-add-your-application-to-access)
+- [Grafana Cloud generic OAuth authentication configuration options](https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/generic-oauth/#configuration-options)
 
 ### HCP (HashiCorp Cloud Platform)
 
