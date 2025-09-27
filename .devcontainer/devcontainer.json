@@ -17,5 +17,12 @@
         "dev.containers.copyGitConfig": true
       }
 		}
-	}
+	},
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.terraformrc",
+      "target": "/home/vscode/.terraformrc,readonly",
+      "type": "bind"
+    }
+  ]	
 }
