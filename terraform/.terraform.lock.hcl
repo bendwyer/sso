@@ -48,7 +48,7 @@ provider "registry.terraform.io/auth0/auth0" {
 
 provider "registry.terraform.io/cloudflare/cloudflare" {
   version     = "4.52.2"
-  constraints = "~> 4.0, >= 4.52.0, < 5.0.0"
+  constraints = "~> 4.0, >= 4.52.0"
   hashes = [
     "h1:sXgoEMTeTY9v8J99znD4S8u4cIk7YOsPoBHplOjdELA=",
     "zh:08238aa3fdcfb89697c84c7777004eb26b069c17117bef75b0e70aec5019dea2",
