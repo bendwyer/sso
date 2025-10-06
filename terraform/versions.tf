@@ -12,7 +12,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "~> 4.0"
+      version = "~> 5.11"
       # lots of bugs in 5.0, pinning to 4.0 for now
     }
     grafana = {
