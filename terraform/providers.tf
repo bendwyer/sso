@@ -18,6 +18,4 @@ provider "grafana" {
 
 }
 
-provider "onepassword" {
-  op_cli_path = "./tools/op"
-}
+provider "onepassword" {}
