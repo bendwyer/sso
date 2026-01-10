@@ -39,8 +39,8 @@ output "omni_client_secret" {
   sensitive = true
 }
 
-output "omni_sso_endpoint" {
-  value = module.omni.sso_endpoint
+output "omni_issuer_url" {
+  value = module.omni.issuer_url
 }
 
 output "tailscale_client_id" {

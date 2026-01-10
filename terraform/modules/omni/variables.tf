@@ -1,3 +1,8 @@
+variable "cloudflare_access_team_domain" {
+  description = "Cloudflare Access team domain. Sets the URL where App Launcher can be accessed."
+  type        = string
+}
+
 variable "cloudflare_account_id" {
   description = "Cloudflare account id."
   type        = string
