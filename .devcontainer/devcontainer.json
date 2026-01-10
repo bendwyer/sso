@@ -11,10 +11,7 @@
         "GitHub.vscode-pull-request-github",
         "hashicorp.hcl",
         "redhat.vscode-yaml"
-      ],
-      "settings": {
-        "dev.containers.copyGitConfig": true
-      }
+      ]
     }
   },
   "mounts": [
