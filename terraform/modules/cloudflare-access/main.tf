@@ -43,6 +43,9 @@ resource "cloudflare_zero_trust_access_identity_provider" "this" {
       "email",
       "profile"
     ]
+    claims = [
+      "email_verified"
+    ]
     support_groups = false
   }
 }

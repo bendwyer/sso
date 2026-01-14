@@ -25,6 +25,15 @@ resource "cloudflare_zero_trust_access_application" "this" {
       "profile",
       "email"
     ]
+    custom_claim {
+      name     = "email_verified"
+      scope    = "profile"
+      required = false
+
+      source {
+        name = "email_verified"
+      }
+    }
     access_token_lifetime = "5m"
   }
 }
