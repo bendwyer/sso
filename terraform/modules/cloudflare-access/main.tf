@@ -41,8 +41,7 @@ resource "cloudflare_zero_trust_access_identity_provider" "this" {
     scopes = [
       "openid",
       "email",
-      "profile",
-      "email_verified" # for omni
+      "profile"
     ]
     support_groups = false
   }
