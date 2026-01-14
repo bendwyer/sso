@@ -18,7 +18,7 @@ resource "cloudflare_zero_trust_access_application" "this" {
     app_launcher_url = "https://${var.omni_url}"
     auth_type        = "oidc"
     redirect_uris = [
-      "https://${var.omni_url}"
+      "https://${var.omni_url}/oidc/consume"
     ]
     scopes = [
       "openid",
