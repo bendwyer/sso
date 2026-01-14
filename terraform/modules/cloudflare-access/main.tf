@@ -42,6 +42,7 @@ resource "cloudflare_zero_trust_access_identity_provider" "this" {
       "openid",
       "email",
       "profile"
+      "email_verified" # for omni
     ]
     support_groups = false
   }
