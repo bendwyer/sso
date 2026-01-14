@@ -23,7 +23,8 @@ resource "cloudflare_zero_trust_access_application" "this" {
     scopes = [
       "openid",
       "profile",
-      "email"
+      "email",
+      "email_verified"
     ]
     access_token_lifetime = "5m"
   }
