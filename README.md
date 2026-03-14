@@ -66,25 +66,6 @@ The settings in AWS IAM Identity Center need to be manually configured. The [has
 
 - [SaaS Apps - AWS SSO](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/saas-apps/aws-sso-saas/)
 
-### Grafana Cloud
-
-This can be configured completely with Terraform, with the exception of:
-
-- Grafana Cloud service account
-
-The service account requires the following roles (it is unclear if both or only one is needed):
-
-- Settings:Authentication config writer
-- Settings:General authentication config writer
-
-The token generated for the service account should be used with Terraform to manage the SSO configuration.
-
-#### Links
-
-- [Grafana Cloud OIDC application on Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/saas-apps/grafana-cloud-saas-oidc/)
-- [Cloudflare Zero Trust application URL patterns](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/saas-apps/generic-oidc-saas/#2-add-your-application-to-access)
-- [Grafana Cloud generic OAuth authentication configuration options](https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/generic-oauth/#configuration-options)
-
 ### HCP (HashiCorp Cloud Platform)
 
 The settings in HCP need to be manually configured. The [hashicorp/hcp](https://registry.terraform.io/providers/hashicorp/hcp/latest/docs) provider does not (yet) support this operation. Once SSO is enabled, users can no longer be invited to the organization and should instead be provisioned in the IdP (Auth0).
