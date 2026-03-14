@@ -12,10 +12,4 @@ provider "cloudflare" {
   api_token = data.onepassword_item.cloudflare.credential
 }
 
-provider "grafana" {
-  auth = data.onepassword_item.grafana_cloud.credential
-  url  = "https://${var.grafana_stack_url}"
-
-}
-
 provider "onepassword" {}
