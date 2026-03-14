@@ -69,11 +69,6 @@ variable "cloudflare_zone_name" {
   type        = string
 }
 
-variable "grafana_stack_url" {
-  description = "URL of Grafana Stack."
-  type        = string
-}
-
 variable "hcp_acs_url" {
   description = "SAML Assertion Consumer Service (ACS) url."
   type        = string
@@ -120,11 +115,6 @@ variable "onepassword_item_uuid_auth0" {
 }
 
 variable "onepassword_item_uuid_cloudflare" {
-  description = "1Password item uuid for Cloudflare credential."
-  type        = string
-}
-
-variable "onepassword_item_uuid_grafana_cloud" {
   description = "1Password item uuid for Cloudflare credential."
   type        = string
 }

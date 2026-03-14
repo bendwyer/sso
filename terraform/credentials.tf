@@ -11,8 +11,3 @@ data "onepassword_item" "cloudflare" {
   vault = data.onepassword_vault.this.uuid
   uuid  = var.onepassword_item_uuid_cloudflare
 }
-
-data "onepassword_item" "grafana_cloud" {
-  vault = data.onepassword_vault.this.uuid
-  uuid  = var.onepassword_item_uuid_grafana_cloud
-}
