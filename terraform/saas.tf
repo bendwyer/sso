@@ -12,16 +12,6 @@ module "aws_iam_identity_center" {
   aws_iam_identity_center_username               = var.aws_iam_identity_center_username
 }
 
-module "grafana_cloud" {
-  source = "./modules/grafana-cloud"
-
-  cloudflare_access_team_domain                  = var.cloudflare_access_team_domain
-  cloudflare_account_id                          = var.cloudflare_account_id
-  cloudflare_zero_trust_access_identity_provider = module.cloudflare_access.auth0_idp_oidc
-  cloudflare_zero_trust_access_policy            = module.cloudflare_access.private_applications_policy
-  grafana_stack_url                              = var.grafana_stack_url
-}
-
 module "hcp" {
   source = "./modules/hcp"
 
