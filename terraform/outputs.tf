@@ -30,19 +30,6 @@ output "iam_identity_center_public_key" {
   value = module.aws_iam_identity_center.public_key
 }
 
-output "omni_client_id" {
-  value = module.omni.client_id
-}
-
-output "omni_client_secret" {
-  value     = module.omni.client_secret
-  sensitive = true
-}
-
-output "omni_issuer_url" {
-  value = module.omni.issuer_url
-}
-
 output "tailscale_client_id" {
   value = module.tailscale.client_id
 }

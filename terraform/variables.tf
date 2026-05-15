@@ -99,11 +99,6 @@ variable "hcp_terraform_entity_id" {
   type        = string
 }
 
-variable "omni_url" {
-  description = "URL of Omni service."
-  type        = string
-}
-
 variable "onepassword_vault_uuid" {
   description = "1Password vault uuid."
   type        = string
