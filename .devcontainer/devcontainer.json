@@ -1,7 +1,8 @@
 {
-  "name": "sso",
+  "name": "${containerWorkspaceFolderBasename}",
   "image": "mcr.microsoft.com/devcontainers/base:debian12",
   "features": {
+    "ghcr.io/bendwyer/devcontainer-features/claude-code:5": {},
     "ghcr.io/bendwyer/devcontainer-features/terraform:4": {}
   },
   "customizations": {
@@ -9,7 +10,6 @@
       "extensions": [
         "github.vscode-github-actions",
         "GitHub.vscode-pull-request-github",
-        "hashicorp.hcl",
         "redhat.vscode-yaml"
       ]
     }
