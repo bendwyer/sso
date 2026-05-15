@@ -35,16 +35,6 @@ module "hcp_terraform" {
   hcp_terraform_entity_id                        = var.hcp_terraform_entity_id
 }
 
-module "omni" {
-  source = "./modules/omni"
-
-  cloudflare_access_team_domain                  = var.cloudflare_access_team_domain
-  cloudflare_account_id                          = var.cloudflare_account_id
-  cloudflare_zero_trust_access_identity_provider = module.cloudflare_access.auth0_idp_oidc
-  cloudflare_zero_trust_access_policy            = module.cloudflare_access.private_applications_policy
-  omni_url                                       = var.omni_url
-}
-
 module "tailscale" {
   source = "./modules/tailscale"
 
