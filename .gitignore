@@ -38,3 +38,8 @@ terraform.rc
 
 # Ignore generic files
 .DS_Store
+
+# Ignore Claude files
+.claude
+.mcp.json
+CLAUDE.md
