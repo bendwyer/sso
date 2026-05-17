@@ -91,7 +91,7 @@ variable "hcp_organization_id" {
 
 variable "hcp_terraform_orgs" {
   default     = {}
-  description = "HCP Terraform orgs to register as Cloudflare Access SaaS applications. Empty map registers none."
+  description = "HCP Terraform orgs to register as Cloudflare Access SaaS applications. Use keys 'static' and 'ephemeral' to match scalar outputs. Empty map registers none."
   type = map(object({
     acs_url                    = string
     cloudflare_access_app_name = optional(string, "HCP Terraform")
