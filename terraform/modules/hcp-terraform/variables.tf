@@ -1,3 +1,9 @@
+variable "cloudflare_access_app_name" {
+  default     = "HCP Terraform"
+  description = "Cloudflare Access application name."
+  type        = string
+}
+
 variable "cloudflare_account_id" {
   description = "Cloudflare account id."
   type        = string
