@@ -113,3 +113,15 @@ variable "onepassword_item_uuid_cloudflare" {
   description = "1Password item uuid for Cloudflare credential."
   type        = string
 }
+
+variable "tfc_aws_dynamic_credentials" {
+  description = "Object containing AWS dynamic credentials configuration"
+  type = object({
+    default = object({
+      shared_config_file = string
+    })
+    aliases = map(object({
+      shared_config_file = string
+    }))
+  })
+}

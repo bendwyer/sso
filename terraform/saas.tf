@@ -1,5 +1,8 @@
 module "aws_iam_identity_center" {
   source = "./modules/aws-iam-identity-center"
+  providers = {
+    aws = aws.MANAGEMENT
+  }
 
   cloudflare_account_id                          = var.cloudflare_account_id
   cloudflare_zero_trust_access_identity_provider = module.cloudflare_access.auth0_idp_oidc
