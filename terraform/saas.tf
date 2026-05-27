@@ -26,15 +26,13 @@ module "hcp" {
 }
 
 module "hcp_terraform" {
-  for_each = var.hcp_terraform_orgs
-  source   = "./modules/hcp-terraform"
+  source = "./modules/hcp-terraform"
 
-  cloudflare_access_app_name                     = each.value.cloudflare_access_app_name
   cloudflare_account_id                          = var.cloudflare_account_id
   cloudflare_zero_trust_access_identity_provider = module.cloudflare_access.auth0_idp_oidc
   cloudflare_zero_trust_access_policy            = module.cloudflare_access.private_applications_policy
-  hcp_terraform_acs_url                          = each.value.acs_url
-  hcp_terraform_entity_id                        = each.value.entity_id
+  hcp_terraform_acs_url                          = var.hcp_terraform_acs_url
+  hcp_terraform_entity_id                        = var.hcp_terraform_entity_id
 }
 
 module "tailscale" {

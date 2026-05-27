@@ -6,16 +6,16 @@ output "hcp_public_key" {
   value = module.hcp.public_key
 }
 
-output "hcp_terraform_sso_endpoints" {
-  value = { for k, v in module.hcp_terraform : k => v.sso_endpoint }
+output "hcp_terraform_sso_endpoint" {
+  value = module.hcp_terraform.sso_endpoint
 }
 
-output "hcp_terraform_idp_entity_ids" {
-  value = { for k, v in module.hcp_terraform : k => v.idp_entity_id }
+output "hcp_terraform_idp_entity_id" {
+  value = module.hcp_terraform.idp_entity_id
 }
 
-output "hcp_terraform_public_keys" {
-  value = { for k, v in module.hcp_terraform : k => v.public_key }
+output "hcp_terraform_public_key" {
+  value = module.hcp_terraform.public_key
 }
 
 output "iam_identity_center_sso_endpoint" {

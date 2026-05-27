@@ -1,6 +1,6 @@
 resource "cloudflare_zero_trust_access_application" "this" {
   account_id = var.cloudflare_account_id
-  name       = var.cloudflare_access_app_name
+  name       = "HCP Terraform"
   allowed_idps = [
     var.cloudflare_zero_trust_access_identity_provider
   ]
