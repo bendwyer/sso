@@ -5,7 +5,9 @@ provider "auth0" {
 }
 
 provider "aws" {
-  region = var.aws_region
+  alias               = "MANAGEMENT"
+  region              = var.aws_region
+  shared_config_files = [var.tfc_aws_dynamic_credentials.aliases["MANAGEMENT"].shared_config_file]
 }
 
 provider "cloudflare" {
