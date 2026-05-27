@@ -6,28 +6,16 @@ output "hcp_public_key" {
   value = module.hcp.public_key
 }
 
-output "hcp_terraform_static_sso_endpoint" {
-  value = try(module.hcp_terraform["static"].sso_endpoint, "")
+output "hcp_terraform_sso_endpoint" {
+  value = module.hcp_terraform.sso_endpoint
 }
 
-output "hcp_terraform_static_idp_entity_id" {
-  value = try(module.hcp_terraform["static"].idp_entity_id, "")
+output "hcp_terraform_idp_entity_id" {
+  value = module.hcp_terraform.idp_entity_id
 }
 
-output "hcp_terraform_static_public_key" {
-  value = try(module.hcp_terraform["static"].public_key, "")
-}
-
-output "hcp_terraform_ephemeral_sso_endpoint" {
-  value = try(module.hcp_terraform["ephemeral"].sso_endpoint, "")
-}
-
-output "hcp_terraform_ephemeral_idp_entity_id" {
-  value = try(module.hcp_terraform["ephemeral"].idp_entity_id, "")
-}
-
-output "hcp_terraform_ephemeral_public_key" {
-  value = try(module.hcp_terraform["ephemeral"].public_key, "")
+output "hcp_terraform_public_key" {
+  value = module.hcp_terraform.public_key
 }
 
 output "iam_identity_center_sso_endpoint" {

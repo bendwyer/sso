@@ -89,14 +89,14 @@ variable "hcp_organization_id" {
   type        = string
 }
 
-variable "hcp_terraform_orgs" {
-  default     = {}
-  description = "HCP Terraform orgs to register as Cloudflare Access SaaS applications. Use keys 'static' and 'ephemeral' to match scalar outputs. Empty map registers none."
-  type = map(object({
-    acs_url                    = string
-    cloudflare_access_app_name = optional(string, "HCP Terraform")
-    entity_id                  = string
-  }))
+variable "hcp_terraform_acs_url" {
+  description = "SAML Assertion Consumer Service (ACS) url."
+  type        = string
+}
+
+variable "hcp_terraform_entity_id" {
+  description = "SAML Entity ID. Can also be called Issuer URL or Audience."
+  type        = string
 }
 
 variable "onepassword_vault_uuid" {
