@@ -5,6 +5,7 @@ provider "auth0" {
 }
 
 provider "aws" {
+  alias  = "MANAGEMENT"
   region = var.aws_region
 }
 
