@@ -1,3 +1,11 @@
+output "cloudflare_access_auth0_idp_oidc_id" {
+  value = module.cloudflare_access.auth0_idp_oidc
+}
+
+output "cloudflare_access_private_applications_policy_id" {
+  value = module.cloudflare_access.private_applications_policy
+}
+
 output "hcp_sso_endpoint" {
   value = module.hcp.sso_endpoint
 }
