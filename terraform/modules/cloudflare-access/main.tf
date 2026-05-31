@@ -30,7 +30,7 @@ resource "cloudflare_zero_trust_access_identity_provider" "this" {
   name       = "Auth0"
   type       = "oidc"
 
-  config {
+  config = {
     client_id        = data.auth0_client.this.client_id
     client_secret    = data.auth0_client.this.client_secret
     auth_url         = "https://${data.auth0_tenant.this.domain}/authorize"
@@ -46,7 +46,6 @@ resource "cloudflare_zero_trust_access_identity_provider" "this" {
     claims = [
       "email_verified"
     ]
-    support_groups = false
   }
 }
 
@@ -55,9 +54,9 @@ resource "cloudflare_zero_trust_access_policy" "app_launcher" {
   name       = "app-launcher"
   decision   = "allow"
 
-  include {
-    email_domain = var.cloudflare_access_policy_allow_domains
-  }
+  include = [for domain in var.cloudflare_access_policy_allow_domains : {
+    email_domain = { domain = domain }
+  }]
 
   lifecycle {
     create_before_destroy = true
@@ -69,9 +68,9 @@ resource "cloudflare_zero_trust_access_policy" "private_applications" {
   name       = "private-applications"
   decision   = "allow"
 
-  include {
-    email_domain = var.cloudflare_access_policy_allow_domains
-  }
+  include = [for domain in var.cloudflare_access_policy_allow_domains : {
+    email_domain = { domain = domain }
+  }]
 
   lifecycle {
     create_before_destroy = true
@@ -83,33 +82,33 @@ resource "cloudflare_zero_trust_access_policy" "shared_applications" {
   name       = "shared-applications"
   decision   = "allow"
 
-  include {
-    email_domain = var.cloudflare_access_policy_allow_domains
-  }
+  include = [for domain in var.cloudflare_access_policy_allow_domains : {
+    email_domain = { domain = domain }
+  }]
 
   lifecycle {
     create_before_destroy = true
   }
 }
 
-resource "cloudflare_zero_trust_access_organization" "this" {
+resource "cloudflare_zero_trust_organization" "this" {
   account_id  = var.cloudflare_account_id
   name        = "${var.cloudflare_access_team_domain}.cloudflareaccess.com"
   auth_domain = "${var.cloudflare_access_team_domain}.cloudflareaccess.com"
-
-  custom_pages {}
-
-  login_design {}
 
   lifecycle {
     prevent_destroy = true
   }
 }
 
+moved {
+  from = cloudflare_zero_trust_access_organization.this
+  to   = cloudflare_zero_trust_organization.this
+}
+
 # App Launcher
 resource "cloudflare_zero_trust_access_application" "this" {
-  account_id           = var.cloudflare_account_id
-  app_launcher_visible = false
+  account_id = var.cloudflare_account_id
   allowed_idps = [
     cloudflare_zero_trust_access_identity_provider.this.id
   ]
@@ -118,7 +117,10 @@ resource "cloudflare_zero_trust_access_application" "this" {
   skip_app_launcher_login_page = false
   type                         = "app_launcher"
   policies = [
-    cloudflare_zero_trust_access_policy.app_launcher.id
+    {
+      id         = cloudflare_zero_trust_access_policy.app_launcher.id
+      precedence = 1
+    }
   ]
 
   lifecycle {

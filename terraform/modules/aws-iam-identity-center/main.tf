@@ -4,18 +4,19 @@ resource "cloudflare_zero_trust_access_application" "this" {
   allowed_idps = [
     var.cloudflare_zero_trust_access_identity_provider
   ]
-  auto_redirect_to_identity    = true
-  session_duration             = "6h"
-  skip_app_launcher_login_page = false
-  type                         = "saas"
-  logo_url                     = "https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico"
+  auto_redirect_to_identity = true
+  session_duration          = "6h"
+  type                      = "saas"
+  logo_url                  = "https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico"
 
   policies = [
-    var.cloudflare_zero_trust_access_policy
+    {
+      id         = var.cloudflare_zero_trust_access_policy
+      precedence = 1
+    }
   ]
 
-  saas_app {
-    # auth_type = "saml"
+  saas_app = {
     consumer_service_url = var.aws_iam_identity_center_acs_url
     name_id_format       = "email"
     sp_entity_id         = var.aws_iam_identity_center_entity_id
