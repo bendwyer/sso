@@ -69,6 +69,17 @@ variable "cloudflare_zone_name" {
   type        = string
 }
 
+variable "dashboard_sso_email_domain" {
+  description = "Email domain to enforce Cloudflare dashboard SSO for."
+  type        = string
+}
+
+variable "dashboard_sso_enabled" {
+  description = "Whether to enforce Cloudflare dashboard SSO. Enable only after domain verification has succeeded."
+  type        = bool
+  default     = false
+}
+
 variable "hcp_acs_url" {
   description = "SAML Assertion Consumer Service (ACS) url."
   type        = string
