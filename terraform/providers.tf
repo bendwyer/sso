@@ -10,8 +10,6 @@ provider "aws" {
   shared_config_files = [var.tfc_aws_dynamic_credentials.aliases["MANAGEMENT"].shared_config_file]
 }
 
-provider "cloudflare" {
-  api_token = data.onepassword_item.cloudflare.credential
-}
+provider "cloudflare" {}
 
 provider "onepassword" {}
