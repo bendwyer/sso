@@ -66,6 +66,24 @@ The settings in AWS IAM Identity Center need to be manually configured. The [has
 
 - [SaaS Apps - AWS SSO](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/saas-apps/aws-sso-saas/)
 
+### Cloudflare Dashboard
+
+Cloudflare's own dashboard supports SSO via a [dashboard SSO connector](https://developers.cloudflare.com/fundamentals/manage-members/dashboard-sso/), managed by the [cloudflare-dashboard-sso](./terraform/modules/cloudflare-dashboard-sso) module. Creating the connector auto-generates the Zero Trust SSO application and its `allow email domain` policy, wired to the Auth0 IdP, so there is no SaaS application to configure manually.
+
+Domain ownership is verified with a `TXT` record (the `cloudflare_dashboard_sso=...` string) that Terraform creates from the connector's verification code. Cloudflare polls it for up to two days.
+
+Set `dashboard_sso_email_domain` to the email domain to enforce. Leave `dashboard_sso_enabled = false` until the connector reports `verified` (check the `module.cloudflare` outputs or the Members page), then set it to `true` in a separate change.
+
+> [!CAUTION]
+> Enabling the connector enforces SSO for every user with that email domain across all accounts, including users registered before SSO was configured. A broken IdP can lock you out.
+
+> [!IMPORTANT]
+> Before enabling, create a backup [account API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with the `SSO Connector Edit` role and store it securely. It is the only way to disable SSO from the API if an IdP change locks you out.
+
+#### Links
+
+- [Set up dashboard SSO](https://developers.cloudflare.com/fundamentals/manage-members/dashboard-sso/)
+
 ### HCP (HashiCorp Cloud Platform)
 
 The settings in HCP need to be manually configured. The [hashicorp/hcp](https://registry.terraform.io/providers/hashicorp/hcp/latest/docs) provider does not (yet) support this operation. Once SSO is enabled, users can no longer be invited to the organization and should instead be provisioned in the IdP (Auth0).
