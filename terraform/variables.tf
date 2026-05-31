@@ -109,11 +109,6 @@ variable "onepassword_item_uuid_auth0" {
   type        = string
 }
 
-variable "onepassword_item_uuid_cloudflare" {
-  description = "1Password item uuid for Cloudflare credential."
-  type        = string
-}
-
 variable "tfc_aws_dynamic_credentials" {
   description = "Object containing AWS dynamic credentials configuration"
   type = object({
