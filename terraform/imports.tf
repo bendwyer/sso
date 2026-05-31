@@ -6,7 +6,7 @@ import {
 
 # Import Cloudflare Access organization
 import {
-  to = module.cloudflare_access.cloudflare_zero_trust_access_organization.this
+  to = module.cloudflare_access.cloudflare_zero_trust_organization.this
   id = var.cloudflare_account_id
 }
 

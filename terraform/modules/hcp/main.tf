@@ -5,17 +5,18 @@ resource "cloudflare_zero_trust_access_application" "this" {
   allowed_idps = [
     var.cloudflare_zero_trust_access_identity_provider
   ]
-  app_launcher_visible         = false
-  auto_redirect_to_identity    = true
-  session_duration             = "6h"
-  skip_app_launcher_login_page = false
-  type                         = "saas"
+  app_launcher_visible      = false
+  auto_redirect_to_identity = true
+  session_duration          = "6h"
+  type                      = "saas"
   policies = [
-    var.cloudflare_zero_trust_access_policy
+    {
+      id         = var.cloudflare_zero_trust_access_policy
+      precedence = 1
+    }
   ]
 
-  saas_app {
-    # auth_type = "saml"
+  saas_app = {
     consumer_service_url = var.hcp_acs_url
     name_id_format       = "email"
     sp_entity_id         = var.hcp_entity_id
@@ -34,15 +35,20 @@ resource "cloudflare_zero_trust_access_application" "bookmark" {
 
 
 data "cloudflare_zones" "this" {
-  filter {
-    name = var.cloudflare_zone_name
-  }
+  name = var.cloudflare_zone_name
 }
 
-resource "cloudflare_record" "this" {
-  zone_id = data.cloudflare_zones.this.zones[0]["id"]
-  name    = data.cloudflare_zones.this.zones[0]["name"]
+
+resource "cloudflare_dns_record" "this" {
+  zone_id = data.cloudflare_zones.this.result[0]["id"]
+  name    = data.cloudflare_zones.this.result[0]["name"]
   content = var.hcp_domain_verification_content
   comment = "HCP"
   type    = "TXT"
+  ttl     = 1
+}
+
+moved {
+  from = cloudflare_record.this
+  to   = cloudflare_dns_record.this
 }

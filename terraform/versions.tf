@@ -12,8 +12,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "~> 4.0"
-      # lots of bugs in 5.0, pinning to 4.0 for now
+      version = "~> 5.0"
     }
     onepassword = {
       source  = "1Password/onepassword"

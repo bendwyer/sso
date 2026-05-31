@@ -49,7 +49,7 @@ The following API token permissions are required for terraform:
 
 If you're struggling to find reference ID's for Cloudflare objects to import, sometimes the information can be found by inspecting the page using the "Network" tab in your browser's development tools. Filter by "XHR/Fetch" (Safari) and you should find a corresponding item that contains the relevant ID. You may need to navigate to different pages for the correct info to show up though.
 
-The v4.x provider is preferred for the moment since 5.x has a lot of problems.
+The provider is on v5.x, migrated from v4.x with [`tf-migrate`](https://github.com/cloudflare/tf-migrate) plus manual fixups. Provider versions are constrained to `~> 5.0` (`>= 5.19.1`, the floor for v5's automatic state upgraders).
 
 #### Links
 
