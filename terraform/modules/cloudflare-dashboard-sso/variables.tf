@@ -18,3 +18,8 @@ variable "dashboard_sso_enabled" {
   type        = bool
   default     = false
 }
+
+variable "dashboard_sso_policy_id" {
+  description = "ID of the connector-generated allow-email-domain policy attached to the dash_sso app."
+  type        = string
+}

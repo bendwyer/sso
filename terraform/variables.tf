@@ -80,6 +80,16 @@ variable "dashboard_sso_enabled" {
   default     = false
 }
 
+variable "dashboard_sso_app_id" {
+  description = "ID of the connector-generated dash_sso Access application, imported and managed here."
+  type        = string
+}
+
+variable "dashboard_sso_policy_id" {
+  description = "ID of the connector-generated allow-email-domain Access policy attached to the dash_sso application."
+  type        = string
+}
+
 variable "hcp_acs_url" {
   description = "SAML Assertion Consumer Service (ACS) url."
   type        = string

@@ -53,4 +53,5 @@ module "cloudflare" {
   cloudflare_zone_name       = var.cloudflare_zone_name
   dashboard_sso_email_domain = var.dashboard_sso_email_domain
   dashboard_sso_enabled      = var.dashboard_sso_enabled
+  dashboard_sso_policy_id    = var.dashboard_sso_policy_id
 }
