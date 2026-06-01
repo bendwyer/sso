@@ -23,7 +23,7 @@ resource "cloudflare_dns_record" "this" {
 # Pins the allow-email-domain policy -- dropping it locks admins out.
 resource "cloudflare_zero_trust_access_application" "this" {
   account_id                = var.cloudflare_account_id
-  name                      = "Cloudflare SSO"
+  name                      = "SSO App" # changes to the name will not actually apply
   type                      = "dash_sso"
   logo_url                  = "https://www.cloudflare.com/favicon.ico"
   auto_redirect_to_identity = false
