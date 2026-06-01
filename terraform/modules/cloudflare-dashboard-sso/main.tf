@@ -19,16 +19,11 @@ resource "cloudflare_dns_record" "this" {
   comment = "Cloudflare dashboard SSO domain verification"
 }
 
-moved {
-  from = cloudflare_dns_record.verification
-  to   = cloudflare_dns_record.this
-}
-
 # Imported dash_sso app. Its launcher tile = IdP-initiated dashboard login.
 # Pins the allow-email-domain policy -- dropping it locks admins out.
 resource "cloudflare_zero_trust_access_application" "this" {
   account_id                = var.cloudflare_account_id
-  name                      = "Cloudflare"
+  name                      = "Cloudflare SSO"
   type                      = "dash_sso"
   logo_url                  = "https://www.cloudflare.com/favicon.ico"
   auto_redirect_to_identity = false
