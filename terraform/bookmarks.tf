@@ -16,15 +16,6 @@ module "auth0_dashboard" {
   cloudflare_account_id = var.cloudflare_account_id
 }
 
-module "cloudflare_dashboard" {
-  source = "./modules/cloudflare-access-bookmark"
-
-  bookmark_name         = "Cloudflare"
-  bookmark_logo_url     = "https://www.cloudflare.com/favicon.ico"
-  bookmark_url          = "https://dash.cloudflare.com/login"
-  cloudflare_account_id = var.cloudflare_account_id
-}
-
 module "github" {
   source = "./modules/cloudflare-access-bookmark"
 
