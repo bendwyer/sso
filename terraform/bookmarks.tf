@@ -25,11 +25,6 @@ module "cloudflare_dashboard" {
   cloudflare_account_id = var.cloudflare_account_id
 }
 
-moved {
-  from = module.cloudflare.cloudflare_zero_trust_access_application.this
-  to   = module.cloudflare_dashboard.cloudflare_zero_trust_access_application.this
-}
-
 module "github" {
   source = "./modules/cloudflare-access-bookmark"
 
