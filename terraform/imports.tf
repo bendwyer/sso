@@ -18,6 +18,6 @@ import {
 
 # Import Cloudflare dashboard SSO app
 import {
-  to = module.cloudflare.cloudflare_zero_trust_access_application.dashboard_sso
+  to = module.cloudflare.cloudflare_zero_trust_access_application.this
   id = "accounts/${var.cloudflare_account_id}/${var.dashboard_sso_app_id}"
 }

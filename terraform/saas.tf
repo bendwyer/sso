@@ -49,9 +49,10 @@ module "tailscale" {
 module "cloudflare" {
   source = "./modules/cloudflare-dashboard-sso"
 
-  cloudflare_account_id      = var.cloudflare_account_id
-  cloudflare_zone_name       = var.cloudflare_zone_name
-  dashboard_sso_email_domain = var.dashboard_sso_email_domain
-  dashboard_sso_enabled      = var.dashboard_sso_enabled
-  dashboard_sso_policy_id    = var.dashboard_sso_policy_id
+  cloudflare_account_id                          = var.cloudflare_account_id
+  cloudflare_zero_trust_access_identity_provider = module.cloudflare_access.auth0_idp_oidc
+  cloudflare_zone_name                           = var.cloudflare_zone_name
+  dashboard_sso_email_domain                     = var.dashboard_sso_email_domain
+  dashboard_sso_enabled                          = var.dashboard_sso_enabled
+  dashboard_sso_policy_id                        = var.dashboard_sso_policy_id
 }
