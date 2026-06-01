@@ -40,11 +40,12 @@ Perform the following manual tasks:
 
 No manual tasks.
 
-The following API token permissions are required for terraform:
+The following [Account API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) permissions are required for Terraform:
 
 - Zero Trust:Edit
 - Access: Organizations, Identity Providers, and Groups:Edit
 - Access: Apps and Policies:Edit
+- SSO Connector:Edit
 - All zones - DNS:Edit
 
 If you're struggling to find reference ID's for Cloudflare objects to import, sometimes the information can be found by inspecting the page using the "Network" tab in your browser's development tools. Filter by "XHR/Fetch" (Safari) and you should find a corresponding item that contains the relevant ID. You may need to navigate to different pages for the correct info to show up though.
@@ -70,9 +71,11 @@ The settings in AWS IAM Identity Center need to be manually configured. The [has
 
 Cloudflare's own dashboard supports SSO via a [dashboard SSO connector](https://developers.cloudflare.com/fundamentals/manage-members/dashboard-sso/), managed by the [cloudflare-dashboard-sso](./terraform/modules/cloudflare-dashboard-sso) module. Creating the connector auto-generates the Zero Trust SSO application and its `allow email domain` policy, wired to the Auth0 IdP, so there is no SaaS application to configure manually.
 
+The auto-generated SSO application is imported into the module so its App Launcher tile can be customized (logo, allowed IdP). Cloudflare reserves the application's `name`, so it cannot be changed via Terraform.
+
 Domain ownership is verified with a `TXT` record (the `cloudflare_dashboard_sso=...` string) that Terraform creates from the connector's verification code. Cloudflare polls it for up to two days.
 
-Set `dashboard_sso_email_domain` to the email domain to enforce. Leave `dashboard_sso_enabled = false` until the connector reports `verified` (check the `module.cloudflare` outputs or the Members page), then set it to `true` in a separate change.
+Set the email domain to enforce, and leave the connector disabled until it reports `verified` (the Members page, or the connector's verification output). Enable it in a separate change.
 
 > [!CAUTION]
 > Enabling the connector enforces SSO for every user with that email domain across all accounts, including users registered before SSO was configured. A broken IdP can lock you out.
